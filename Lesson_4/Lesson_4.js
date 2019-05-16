@@ -4,15 +4,15 @@ function numberToObject(num) {
         throw new Error('Функция не работает с отрицательными числами');
         return;
     }
-    var keys = ['units','tens','hundreds'];
+    var keys = ['units', 'tens', 'hundreds'];
     num = num + '';
     if(num.length > keys.length){
         throw new Error('Такие большие числа не поддерживаються');
         return;
     }
     var obj = {}
-    for (var i = num.length-1; i >= 0; i--){
-        var key = keys[num.length-1-i];
+    for (var i = num.length - 1; i >= 0; i--){
+        var key = keys[num.length - 1 - i];
         obj[key] = num[i];
     }
     return obj;
@@ -42,7 +42,7 @@ var basket = [{
 function countBasketPrice(basket) {
     var total = 0;
     for(var i = 0; i < basket.length; i++){
-    total = total + basket[i].price * basket[i].quantity;
-    }
+     total = total + basket[i].price * basket[i].quantity;
+     }
 return total;
 }
