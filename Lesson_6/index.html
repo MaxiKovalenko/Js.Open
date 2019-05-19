@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <div id="mold" style="display: none;">
+    <li>
+      <div>
+        <span class="name"></span><span class="price"></span><button>Купить</button>
+      </div>
+    </li>
+  </div>
+  <div id="basket"></div>
+  <ul id="catalog"></ul>
+  <script >
+
+var products = [
+  {
+    name: 'Ноутбук Samsung',
+    price: 90000,
+  },
+  {
+    name: 'Ноутбук HP',
+    price: 110000,
+  }
+];
+var $catalog = document.getElementById('catalog');
+$catalog.addEventListener('click', processedClick);
+
+function getIndex(name) {
+  var idx = -1;
+  for(var i = 0; i < basket.length; i++){
+    if(basket[i].name === name){
+      idx = i;
+    }
+  }
+  return idx;
+}
+
+function processedClick(event) {
+  if (event.target.tagName === 'BUTTON') {
+    var $product = event.target.parentElement;
+    var name = $product.querySelector('.name').textContent;
+    var price = +$product.querySelector('.price').textContent;
+    
+    var index = getIndex(name);
+    if (index=== -1) {
+      basket.push({ name: name, price: price, quantity: 1}); 
+    } else{
+      basket[index].quantity++;
+    }
+    buildBasketPrice(basket);
+  }
+}
+
+var $mold = document.getElementById('mold');
+function buildCatalog(products) {
+    for(var i = 0; i < products.length; i++){
+    var $item = $mold.children[0].cloneNode(true);
+    $item.querySelector('.name').textContent = products[i].name;
+    $item.querySelector('.price').textContent = products[i].price;
+    $catalog.appendChild($item);
+    }
+}
+buildCatalog(products);
+
+
+var basket = [
+  // {
+  //   name: 'Ноутбук Samsung',
+  //   price: 90000,
+  //   quantity: 6, 
+  // },
+  // {
+  //   name: 'Ноутбук HP',
+  //   price: 110000,
+  //   quantity: 5,
+  // },
+];
+var $basket = document.getElementById('basket');
+function buildBasketPrice(basket) {
+    var total = 0;
+    var count = 0;
+    for(var i = 0; i < basket.length; i++){
+    total = total + basket[i].price * basket[i].quantity;
+    count = count + basket[i].quantity;
+    }
+  $basket.innerHTML = '';  
+  var $read = document.createElement('read');
+  if(total === 0) {
+    $read.textContent = 'Корзина пуста';
+  } else {
+    $read.textContent = 'Общая сумма покупок: ' + total + 'рублей. Колличество единиц товара: ' + count + ' штук.';
+  }
+  $basket.appendChild($read);
+}
+buildBasketPrice(basket);
+
+  </script>
+</body>
+</html>
