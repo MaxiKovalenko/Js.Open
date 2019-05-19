@@ -40,28 +40,28 @@ var $chessBoard = document.createElement('div');
 $chessBoard.id = 'chessBoard';
 $chessBoard.classList.add('chess-wrap');
 
- var $digits = document.createElement('ul');
- $digits.classList.add('vertical-right', 'border');
+var $digits = document.createElement('ul');
+$digits.classList.add('vertical-right', 'border');
 
- var $letters = document.createElement('ul');
- $letters.classList.add('horisontal-top', 'border')
+var $letters = document.createElement('ul');
+$letters.classList.add('horisontal-top', 'border')
 
 for(var i = 0; i < 8; i++) {
   var $row = document.createElement('div');
   $row.classList.add('row');
 
-    var $liDigit = document.createElement('li');
-    $liDigit.textContent = i + 1;
-    $digits.appendChild($liDigit);
+  var $liDigit = document.createElement('li');
+  $liDigit.textContent = i + 1;
+  $digits.appendChild($liDigit);
 
-   var $liLetter = document.createElement('li');
-   $liLetter.textContent = String.fromCharCode(65 + i);
-   $letters.appendChild($liLetter);
+  var $liLetter = document.createElement('li');
+  $liLetter.textContent = String.fromCharCode(65 + i);
+  $letters.appendChild($liLetter);
 
   for(var j = 0; j < 8; j++) {
     var $cell = document.createElement('div');
     $cell.classList.add('box');
-     var coord = String.fromCharCode(65 + j) + (8 - i);
+    var coord = String.fromCharCode(65 + j) + (8 - i);
 
      $cell.textContent = mapping[coord];
      $row.appendChild($cell);
@@ -82,5 +82,5 @@ for(var i = 0; i < 8; i++) {
  $wrap.appendChild($digitsLeft);
  $wrap.appendChild($letters);
  $wrap.appendChild($lettersBottom);
-$wrap.appendChild($chessBoard);
-document.body.appendChild($wrap);
+ $wrap.appendChild($chessBoard);
+ document.body.appendChild($wrap);
