@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+   .picture {
+     width: 200px;
+     cursor: pointer;
+   }
+   .overlay {
+     position: absolute;
+     top: 0;
+     left:0;
+     width: 100vw;
+     hight: 100vh;
+   }
+      
+   .preview {
+    width: 400px;
+    margin: 20px auto;
+  }
+ 
+ .active {
+    display: block;
+  }
+  </style>
+</head>
+<body>
+  <div id="template" style="display: none;">
+    <li>
+      <h3 class="title"></h3>
+      <p class="price"></p>
+      <img  class="picture"/>
+      <button class="buy"></button>       
+    </li>
+  </div>
+  <div id="accordion">
+    <h2><a class="tab" href="#content1">Адресс доставки</a></h2>
+     <div id="content1" class="content active">Адресс доставки</div>
+  <h2><a class="tab" href="#content2">Состав заказа</a></h2>
+ 
+  <div id="content2" class="content">
+    <div id="cart"></div>
+    </div>
+  </div>
+  <ul id="catalog"></ul>
+  <script src="Lesson_7.js"></script>
+
+</body>
+</html>
