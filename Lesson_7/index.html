@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <title>D</title>
+    <style>
+   .picture {
+     width: 200px;
+     cursor: pointer;
+   }
+  </style>
+</head>
+<body>
+  <div id="template" style="display: none;">
+    <li>
+      <h3 class="title"></h3>
+      <p class="price"></p>
+      <img  alt="" class="picture">
+      <button class="buy">Buy</button>       
+    </li>
+  </div>
+  <details>
+       <summary><a>Состав заказа</a></summary>
+       <div id="cart"></div>
+       <input type="submit" value="Купить">
+  </details>
+  <details>
+    <summary><a>Адресс доставки</a></summary>
+    <form id="adress"></form>
+  <input placeholder="Адресс доставки" name="adress" form="adress">
+  <input type="submit" value="Отправить" form="adress">
+      </form>
+  </details>
+  <details>
+     <summary><a>Коментарий</a></summary>
+     <form id="Coment">
+      <textarea placeholder="Введите ваш коментарий" rows="10" cols="45" name="Coment"></textarea>
+      <input type="submit" value="Отправить">
+  </form>
+  </details>
+  
+  <ul id="catalog"></ul>
+  <script src="Lesson_7.js"></script>
+
+</body>
+
+
